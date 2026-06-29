@@ -1,0 +1,161 @@
+/* ============================================================================
+   Design tokens — cinematic command-center theme
+   ========================================================================== */
+:root {
+  --bg-0: #04060d;
+  --bg-1: #070b16;
+  --bg-panel: rgba(8, 14, 26, 0.78);
+  --bg-panel-solid: #080e1a;
+  --border: rgba(110, 231, 255, 0.18);
+  --border-strong: rgba(110, 231, 255, 0.4);
+  --accent: #6ee7ff;
+  --accent-dim: #2a8fb5;
+  --warn: #ffb84d;
+  --alert: #ff5a3c;
+  --ok: #4ade80;
+  --text: #d6e6f5;
+  --text-dim: #7a8da4;
+  --text-faint: #4a5a70;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --font-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif;
+  --glow-cyan: 0 0 12px rgba(110, 231, 255, 0.45);
+  --glow-warn: 0 0 12px rgba(255, 184, 77, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-0);
+  color: var(--text);
+  font-family: var(--font-ui);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: var(--font-mono);
+  color: var(--text);
+  background: rgba(110, 231, 255, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+button:hover {
+  background: rgba(110, 231, 255, 0.14);
+  border-color: var(--border-strong);
+  box-shadow: var(--glow-cyan);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button.active {
+  background: rgba(110, 231, 255, 0.22);
+  border-color: var(--accent);
+  color: #eaf9ff;
+  box-shadow: var(--glow-cyan);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.panel-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panel-title::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: var(--glow-cyan);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.value {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text);
+  text-align: right;
+}
+
+.value.warn {
+  color: var(--warn);
+}
+.value.alert {
+  color: var(--alert);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(110, 231, 255, 0.25);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(110, 231, 255, 0.4);
+}

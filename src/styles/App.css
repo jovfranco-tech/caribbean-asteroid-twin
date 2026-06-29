@@ -1,0 +1,67 @@
+.app-root {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-0);
+  overflow: hidden;
+}
+
+.scene-wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.scene-wrap canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  touch-action: none;
+}
+
+/* Vignette for cinematic depth */
+.app-root::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 55%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  z-index: 15;
+}
+
+/* Scanline subtle texture (command-center feel) */
+.app-root::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(110, 231, 255, 0.015) 0px,
+    rgba(110, 231, 255, 0.015) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  z-index: 16;
+  mix-blend-mode: screen;
+}
+
+/* Responsive: collapse side panels on small screens */
+@media (max-width: 720px) {
+  .panel[style*='left: 12px'] {
+    width: min(240px, 80vw) !important;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 560px) {
+  /* On phones, hide the left command panel by default to keep the globe visible;
+     the disclaimer + timeline + header still convey the scenario. */
+  .panel[style*='left: 12px'] {
+    display: none;
+  }
+}
