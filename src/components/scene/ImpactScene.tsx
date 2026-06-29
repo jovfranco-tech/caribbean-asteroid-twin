@@ -89,19 +89,38 @@ export function ImpactScene() {
     <Canvas
       camera={{ position: [1.5, 1.6, 4.5], fov: 45, near: 0.01, far: 200 }}
       dpr={[1, quality === 'high' ? 2 : 1.3]}
-      gl={{ antialias: quality === 'high', alpha: false, powerPreference: 'high-performance' }}
+      gl={{
+        antialias: quality === 'high',
+        alpha: false,
+        powerPreference: 'high-performance',
+        toneMapping: THREE.ACESFilmicToneMapping,
+        toneMappingExposure: 1.05,
+      }}
       onCreated={({ gl, scene }) => {
         gl.setClearColor('#02030a', 1);
-        scene.fog = new THREE.FogExp2('#02030a', 0.015);
+        // ACES-friendly color management
+        THREE.ColorManagement.enabled = true;
+        gl.outputColorSpace = THREE.SRGBColorSpace;
+        scene.fog = new THREE.FogExp2('#02030a', 0.012);
       }}
     >
       <AdaptiveDpr pixelated />
       <SceneDriver />
 
-      {/* Lighting: warm key + cool rim, studio-render feel */}
-      <ambientLight intensity={0.35} />
-      <directionalLight position={[5, 3, 5]} intensity={2.2} color="#fff2e0" />
-      <directionalLight position={[-5, -2, -3]} intensity={0.6} color="#5aa0ff" />
+      {/* Realistic solar lighting: warm key "sun" + cool space ambient + soft fill */}
+      <ambientLight intensity={0.18} color="#3a4a66" />
+      <directionalLight
+        position={[6, 3, 4]}
+        intensity={3.0}
+        color="#fff4e2"
+        castShadow={quality === 'high'}
+        shadow-mapSize-width={1024}
+        shadow-mapSize-height={1024}
+      />
+      {/* Cool rim from the opposite side (earthshine / space bounce) */}
+      <directionalLight position={[-4, -1, -3]} intensity={0.45} color="#4a7ab0" />
+      {/* Subtle hemispheric fill for softer terminator */}
+      <hemisphereLight args={['#9fc8ff', '#0a1020', 0.35]} />
 
       <Stars count={quality === 'high' ? 2500 : 1200} />
 
@@ -134,10 +153,11 @@ export function ImpactScene() {
       {quality === 'high' && (
         <EffectComposer>
           <Bloom
-            intensity={0.9}
-            luminanceThreshold={0.2}
-            luminanceSmoothing={0.4}
+            intensity={1.35}
+            luminanceThreshold={0.55}
+            luminanceSmoothing={0.3}
             mipmapBlur
+            radius={0.7}
           />
         </EffectComposer>
       )}
