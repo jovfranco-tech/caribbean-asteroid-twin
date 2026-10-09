@@ -1,0 +1,5 @@
+# Repository operating instructions
+
+
+## ALORIA-CF-01 — Commercial First, Gold After (owner directive 2026-10-09)
+Read the [canonical AEAS delivery policy](https://github.com/jovfranco-tech/aloria-engineering-assurance-standard/blob/policy/commercial-first-20261009/docs/ALORIA_CF_01_COMMERCIAL_FIRST.md). Owner-approved commercial scope first: deliver real functional product; activate real identity, durable DB and required integrations; validate critical customer journeys and material security/data/payment risks; prepare acquisition/pilots/subscriptions; defer optional Enterprise Gold until the product is commercially usable. Preserve scope and exact-version historical Gold evidence; never equate docs, mocks, source PASS or audit counts with working software. Report feature status, real-use evidence, actual sales blocker and next fix each sprint. Local-first; no GitHub Actions dependency, deployments only at authorized RC/request, no Stripe prices/Live/charges, customer contacts or main merge without owner approval. Honor contractual safety requirements.
