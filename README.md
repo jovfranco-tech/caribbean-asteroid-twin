@@ -187,3 +187,13 @@ See [`SECURITY.md`](SECURITY.md). Do not publish sensitive vulnerability details
 ## License
 
 No open-source license is currently included. Public repository visibility does not grant permission to reuse the source or presentation as an official forecast, emergency system, or scientific model.
+
+## Estado verificado 2026-11-25
+
+Resultado de la consolidación de ramas (solo hechos comprobados en git; no es una certificación ni una medición de producto).
+
+- Paquete npm: `caribbean-asteroid-twin`; scripts declarados: `dev`, `build`, `preview`, `typecheck`.
+- Archivos de código por extensión: `.tsx` 14, `.ts` 9, `.css` 2, `.html` 1.
+- Archivos de prueba detectados: 0. **Las pruebas no se ejecutaron en esta pasada de consolidación** (sin instalar dependencias) salvo que se indique lo contrario en `docs/governance/BRANCH_CONSOLIDATION_PLAN_20261125.md`.
+- Ramas anteriores con trabajo propio (incluida la reescritura de README `docs/readme-reconciliation-001`) se conservan como tags `archive/20261125/*`; su contenido no se fusionó por no poder verificarse contra el código.
+- Detalle de la consolidación: `docs/governance/BRANCH_CONSOLIDATION_PLAN_20261125.md`.
