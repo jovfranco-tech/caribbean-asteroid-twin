@@ -197,3 +197,8 @@ Resultado de la consolidación de ramas (solo hechos comprobados en git; no es u
 - Archivos de prueba detectados: 0. **Las pruebas no se ejecutaron en esta pasada de consolidación** (sin instalar dependencias) salvo que se indique lo contrario en `docs/governance/BRANCH_CONSOLIDATION_PLAN_20261125.md`.
 - Ramas anteriores con trabajo propio (incluida la reescritura de README `docs/readme-reconciliation-001`) se conservan como tags `archive/20261125/*`; su contenido no se fusionó por no poder verificarse contra el código.
 - Detalle de la consolidación: `docs/governance/BRANCH_CONSOLIDATION_PLAN_20261125.md`.
+
+## Repository consolidation (2026-11-25)
+
+This repository keeps a single branch, `main`. Branch heads are preserved as `archive/20261125/*` tags.
+Content that only existed on branches is under [docs/history/recovered-20261125/](docs/history/recovered-20261125/INDEX.md), as historical material.

@@ -1,0 +1,23 @@
+schema_version: "1.0"
+product: "Caribbean Asteroid Twin"
+repository: "jovfranco-tech/caribbean-asteroid-twin"
+state_date: "2026-10-07"
+canonical_branch: "main"
+canonical_main_status: "CANONICAL_ACCEPTED"
+classification: "CANONICAL_ACCEPTED"
+current_phase: "responsible_case_study_current_main"
+canonical_candidate_sha: "f069f2a0c193f7c81c41eadf9f96cddd5660dbc3"
+software_closeable_remaining: "responsible architecture case-study positioning is already merged; main is current truth"
+external_gates:
+  - "real operational data validation"
+  - "no unsupported digital-twin operational claim"
+evidence_boundary:
+  candidate_is_not_main: false
+  main_is_not_production_claim: true
+  technical_gold_is_not_third_party_certification: true
+  commercial_proof_is_separate: true
+promotion_policy:
+  blind_merge_allowed: false
+  exact_sha_validation_required: true
+  preserve_non_claims: true
+  production_deploy_requires_explicit_authorization: true
